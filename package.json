@@ -1,6 +1,6 @@
 {
   "name": "brstar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Browserify transform to preprocess static input brfs-style with your own modules.",
   "scripts": {
     "test": "node test"

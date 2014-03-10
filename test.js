@@ -30,7 +30,7 @@ test('brstar', function(t) {
     .pipe(bl(function(err, contents) {
       t.ifError(err, 'no error')
       contents = String(contents)
-      t.notEqual(
+      t.equal(
           contents.indexOf('HELLO WORLD')
         , -1
         , 'did not replace when not specified in config'

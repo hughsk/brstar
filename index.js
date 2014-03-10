@@ -28,9 +28,14 @@ module.exports = function(file, config) {
   var replaceCount = 0
   var dirname = pkgDir
   var buffer = []
+
   var extras = [].concat(
     config && config.brstar || []
-  )
+  ).map(function(file) {
+    return resolve.sync(file, {
+      basedir: dirname
+    })
+  })
 
   debug('creating transform: %s', file)
 
@@ -60,10 +65,7 @@ module.exports = function(file, config) {
       pkgDir = pkg[dirnameData]
 
       if (!pkg[brstarData]) {
-        pkg[brstarData] = []
-          .concat(pkg.brstar || [])
-          .concat(extras)
-
+        pkg[brstarData] = [].concat(pkg.brstar || [])
         pkg[brstarData] = pkg[brstarData].map(function(file) {
           return resolve.sync(file, {
             basedir: dirname
@@ -71,7 +73,7 @@ module.exports = function(file, config) {
         })
       }
 
-      var brstars = pkg[brstarData]
+      var brstars = pkg[brstarData].concat(extras)
       var replacer = replace(ast)
 
       replaceDirect(brstars, replacer)

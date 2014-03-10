@@ -1,7 +1,7 @@
 {
   "name": "brstar",
   "version": "0.0.1",
-  "description": "",
+  "description": "Browserify transform to preprocess static input brfs-style with your own modules.",
   "scripts": {
     "test": "node test"
   },
@@ -23,6 +23,24 @@
     "tape": "^2.10.2",
     "bl": "^0.7.0"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/brstar.git"
+  },
+  "keywords": [
+    "brfs",
+    "inline",
+    "browserify-transform",
+    "source",
+    "modify",
+    "replace",
+    "custom"
+  ],
+  "bugs": {
+    "url": "https://github.com/hughsk/brstar/issues"
+  },
+  "homepage": "https://github.com/hughsk/brstar"
 }

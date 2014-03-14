@@ -1,6 +1,6 @@
 var debug     = require('debug')('brstar')
 var escodegen = require('escodegen')
-var evaluate  = require('static-eval')
+var sEval     = require('static-eval')
 var replace   = require('replace-method')
 var parents   = require('ast-parents')
 var through   = require('through')
@@ -141,8 +141,14 @@ module.exports = function(file, config) {
       hijack(caller, value)
     })
   }
-}
 
+  function evaluate(ast) {
+    return sEval(ast, {
+        __dirname: path.dirname(file)
+      , __filename: file
+    })
+  }
+}
 
 function getPkg(dir, done) {
   dir = path.resolve(dir)
